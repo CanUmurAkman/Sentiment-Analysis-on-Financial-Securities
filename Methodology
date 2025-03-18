@@ -1,0 +1,46 @@
+Sentiment Analysis Project Methodology
+
+Objective:
+The objective of this project is to analyze sentiment from financial news articles related to selected companies over the past six months. The insights derived will aid in informed decision-making for stock market trading.
+
+Data Collection:
+Financial news articles were collected for the past six months using the Alpha Vantage API, selected for its comprehensive coverage and reliability. The articles were focused on various prominent companies of interest, including Apple, NVIDIA, Amazon, Starbucks, and Nike.
+
+Data Preparation:
+Collected articles were structured into the following format:
+- Headline: Main title of the news article
+- Summary: Brief summary capturing key points and context of the article
+
+This format ensures compatibility with NLP models for sentiment analysis.
+
+Sentiment Analysis Methodology:
+The FinBERT model was utilized for analyzing sentiment. FinBERT provides:
+- Sentiment Classification: Categorizes each article into Positive, Neutral, or Negative
+- Confidence Scores: Numerical values that represent confidence levels in the classification
+
+Aggregation and Computation of Sentiment Scores:
+The sentiment scores were computed for each company by aggregating individual article sentiments and confidence scores using the following formula:
+
+Sentiment Score = (Σ Positive Confidence Scores × 1 + Σ Neutral Confidence Scores × 0 + Σ Negative Confidence Scores × (-1)) / Total Number of Articles
+
+Where:
+- Positive Confidence Scores: Confidence scores for positive-classified articles
+- Neutral Confidence Scores: Confidence scores for neutrally classified articles (assigned weight of 0)
+- Negative Confidence Scores: Confidence scores for negatively classified articles
+
+Sentiment Metrics:
+The computed metrics include:
+- Positive Sentiment Percentage
+- Neutral Sentiment Percentage
+- Negative Sentiment Percentage
+- Overall Sentiment Score
+
+Trend Analysis:
+Sentiment metrics were computed monthly to identify and track trends over the analysis period.
+
+Output:
+The results were exported in a structured format suitable for analysis and integration into trading strategies.
+
+Limitations and Future Improvements:
+- Current methodology focuses solely on textual analysis without direct integration of external quantitative data.
+- Future work will consider combining sentiment analysis with quantitative market data and enhance visualization capabilities for improved interpretative insights.
